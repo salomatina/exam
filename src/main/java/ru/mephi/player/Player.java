@@ -2,6 +2,7 @@ package ru.mephi.player;
 
 import ru.mephi.items.*;
 import ru.mephi.multipleObjects.OutOfTreesException;
+import ru.mephi.objects.House;
 import ru.mephi.objects.Tree;
 import ru.mephi.regions.Region;
 
@@ -35,6 +36,10 @@ public class Player {
         else {
             throw new OutOfLogException();
         }
+    }
+
+    public Region getCurrentLocation() {
+        return currentLocation;
     }
 
     public void setCurrentLocation(Region currentLocation) {

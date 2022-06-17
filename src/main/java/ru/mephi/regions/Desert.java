@@ -9,7 +9,17 @@ public class Desert extends Region{
     private RuinsList ruinsList;
     private MountainList mountainList;
 
-    public Desert() {
-        setTreeList(null);
+    public Desert(int oasisNum, int ruinsNum, int mountainsNum, int houseNum) {
+        super(0, houseNum);
+        oasisList = new OasisList(oasisNum);
+        ruinsList = new RuinsList(ruinsNum);
+        mountainList = new MountainList(mountainsNum);
+//        setTreeList(null);
     }
+
+    @Override
+    public String getName() {
+        return "desert";
+    }
+
 }

@@ -4,25 +4,30 @@ import ru.mephi.multipleObjects.*;
 
 public class Tundra extends Region{
     private CaveList caveList;
-    private HouseList houseList;
+//    private HouseList houseList;
     private IceList iceList;
     private RiverList riverList;
     private RockList rockList;
+
+    public Tundra(int caveNum, int houseNum, int iceNum, int riverNum, int rockNum, int treeNum) {
+        super(treeNum, houseNum);
+        caveList = new CaveList(caveNum);
+        iceList = new IceList(iceNum);
+        riverList = new RiverList(riverNum);
+        rockList = new RockList(rockNum);
+    }
 
     public CaveList getCaveList() {
         return caveList;
     }
 
+    @Override
+    public String getName() {
+        return "tundra";
+    }
+
     public void setCaveList(CaveList caveList) {
         this.caveList = caveList;
-    }
-
-    public HouseList getHouseList() {
-        return houseList;
-    }
-
-    public void setHouseList(HouseList houseList) {
-        this.houseList = houseList;
     }
 
     public IceList getIceList() {

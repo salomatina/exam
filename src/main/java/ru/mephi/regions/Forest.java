@@ -10,6 +10,13 @@ public class Forest extends Region{
     private RiverList riverList;
     private RockList rockList;
 
+    public Forest(int caveNum, int riverNum, int rockNum, int treeNum, int houseNum) {
+        super(treeNum, houseNum);
+        caveList = new CaveList(caveNum);
+        riverList = new RiverList(riverNum);
+        rockList = new RockList(rockNum);
+    }
+
     public CaveList getCaveList() {
         return caveList;
     }
@@ -28,6 +35,11 @@ public class Forest extends Region{
 
     public RockList getRockList() {
         return rockList;
+    }
+
+    @Override
+    public String getName() {
+        return "forest";
     }
 
     public void setRockList(RockList rockList) {

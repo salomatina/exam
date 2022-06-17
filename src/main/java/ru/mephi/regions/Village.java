@@ -3,17 +3,21 @@ package ru.mephi.regions;
 import ru.mephi.multipleObjects.*;
 
 public class Village extends Region{
-    private HouseList houseList;
+//    private HouseList houseList;
     private PubList pubList;
     private RiverList riverList;
     private RockList rockList;
 
-    public HouseList getHouseList() {
-        return houseList;
+    public Village(int houseNum, int pubNum, int riverNum, int rockNum, int treeNum) {
+        super(treeNum, houseNum);
+        pubList = new PubList(pubNum);
+        riverList = new RiverList(riverNum);
+        rockList = new RockList(rockNum);
     }
 
-    public void setHouseList(HouseList houseList) {
-        this.houseList = houseList;
+    @Override
+    public String getName() {
+        return "village";
     }
 
     public PubList getPubList() {
