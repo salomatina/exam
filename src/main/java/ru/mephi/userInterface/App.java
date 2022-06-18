@@ -56,6 +56,7 @@ public class App extends Application {
                         Integer.parseInt(villageTextField.getText()));
                 player.setCurrentLocation(world.getAllRegionsList().get(1));
                 WorldMap.displayMap(world, player);
+//                primaryStage.showAndWait();
             }
         });
         playButton.setPrefSize(100, 40);

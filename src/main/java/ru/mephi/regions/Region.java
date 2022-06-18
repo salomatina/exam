@@ -14,6 +14,11 @@ public abstract class Region {
     private TreeList treeList;
     private HouseList houseList;
     private List<Fire> fireList;
+    private String imagePath;
+
+    public String getImagePath() {
+        return imagePath;
+    }
 
     public Region(int treeNum, int houseNum) {
         treeList = new TreeList(treeNum);

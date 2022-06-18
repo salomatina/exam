@@ -7,6 +7,12 @@ public class Village extends Region{
     private PubList pubList;
     private RiverList riverList;
     private RockList rockList;
+    private String imagePath = "file:/C:\\Users\\Елена\\IdeaProjects\\exam\\src\\main\\resources\\villagePic.jpg";
+
+    @Override
+    public String getImagePath() {
+        return imagePath;
+    }
 
     public Village(int houseNum, int pubNum, int riverNum, int rockNum, int treeNum) {
         super(treeNum, houseNum);

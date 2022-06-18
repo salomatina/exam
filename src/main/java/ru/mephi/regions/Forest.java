@@ -9,6 +9,12 @@ public class Forest extends Region{
     private CaveList caveList;
     private RiverList riverList;
     private RockList rockList;
+    private String imagePath = "file:/C:\\Users\\Елена\\IdeaProjects\\exam\\src\\main\\resources\\forestPicture.jpeg";
+
+    @Override
+    public String getImagePath() {
+        return imagePath;
+    }
 
     public Forest(int caveNum, int riverNum, int rockNum, int treeNum, int houseNum) {
         super(treeNum, houseNum);

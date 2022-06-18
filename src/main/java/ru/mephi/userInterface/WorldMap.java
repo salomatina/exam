@@ -30,11 +30,13 @@ public class WorldMap {
             int n = i;
             button.setOnAction(actionEvent -> {
                 player.setCurrentLocation(world.getAllRegionsList().get(n));
+                System.out.println(player.getCurrentLocation());
+                CurrentRegion.displayRegion(world.getAllRegionsList().get(n), player);
                 mapWindow.close();
             });
             vBox.getChildren().add(button);
         }
-        Scene scene = new Scene(vBox, 400, 200);
+        Scene scene = new Scene(vBox);
         mapWindow.setScene(scene);
         mapWindow.showAndWait();
     }

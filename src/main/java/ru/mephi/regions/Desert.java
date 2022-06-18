@@ -8,6 +8,12 @@ public class Desert extends Region{
     private OasisList oasisList;
     private RuinsList ruinsList;
     private MountainList mountainList;
+    private String imagePath = "file:/C:\\Users\\Елена\\IdeaProjects\\exam\\src\\main\\resources\\desertPic.jpg";
+
+    @Override
+    public String getImagePath() {
+        return imagePath;
+    }
 
     public Desert(int oasisNum, int ruinsNum, int mountainsNum, int houseNum) {
         super(0, houseNum);

@@ -19,4 +19,8 @@ public class TreeList extends ObjList{
     public void remove(Tree tree) throws OutOfTreesException{
         treeList.remove(tree);
     }
+
+    public List<Tree> getTreeList() {
+        return treeList;
+    }
 }

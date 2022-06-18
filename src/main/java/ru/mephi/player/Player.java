@@ -12,6 +12,7 @@ public class Player {
 
     public void CutDownATree(Tree tree) throws OutOfTreesException {
         currentLocation.removeTree(tree);
+        System.out.println("removedTree");
         Log log = new Log();
         logList.addLog(log);
     }
