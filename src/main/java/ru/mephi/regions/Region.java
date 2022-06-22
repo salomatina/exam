@@ -11,8 +11,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Region {
+    private List<Region> neighbors = new ArrayList<>();
     private String imagePath;
     private List<Obj> objectOfInterestList = new ArrayList<>();
+
+    public List<Region> getNeighbors() {
+        return neighbors;
+    }
 
     public List<Obj> getObjectOfInterestList() {
         return objectOfInterestList;

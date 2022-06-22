@@ -20,24 +20,30 @@ public class Player {
         System.out.println(logList.getLogList().size());
     }
 
-    public void BuildAHouse(Obj objectOfInterest)  {
+    public void BuildAHouse(Obj objectOfInterest) throws OutOfLogException {
+        if (logList.getLogList().size() > 9) {
+            System.out.println(logList.getLogList().size() + " before");
+            logList.removeTenLog();
+            System.out.println(logList.getLogList().size() + " after");
             House house = new House();
-        System.out.println(objectOfInterest.getHouseList().size() + " before");
+            System.out.println(objectOfInterest.getHouseList().size() + " before");
             currentLocation.addHouse(house, objectOfInterest);
-        System.out.println(objectOfInterest.getHouseList().size() + " after");
+            System.out.println(objectOfInterest.getHouseList().size() + " after");
+        }
+        else throw new OutOfLogException();
     }
 
     public void setFire(Obj objectOfInterest) throws OutOfLogException, FireInTheVillageException, FireException {
-//        if (logList.getLogList().size() >= 1) {
-//            logList.removeLog();
+        if (logList.getLogList().size() > 0) {
+            logList.removeLog();
             Fire fire = new Fire();
         System.out.println(objectOfInterest.getFireList().size() + " before");
             currentLocation.addFire(fire, objectOfInterest);
         System.out.println(objectOfInterest.getFireList().size() + " after");
-//        }
-//        else {
-//            throw new OutOfLogException();
-//        }
+        }
+        else {
+            throw new OutOfLogException();
+        }
     }
 
     public Region getCurrentLocation() {

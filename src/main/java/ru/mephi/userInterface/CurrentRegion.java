@@ -25,8 +25,8 @@ public class CurrentRegion {
         stage.initModality(Modality.APPLICATION_MODAL);
         Image image = new Image(region.getImagePath());
         ImageView imageView = new ImageView(image);
-        imageView.setFitHeight(240);
-        imageView.setFitWidth(400);
+        imageView.setFitHeight(480);
+        imageView.setFitWidth(800);
         ComboBox<Obj> comboBox = new ComboBox<>();
         comboBox.setPrefSize(200, 30);
         comboBox.getItems().addAll(region.getObjectOfInterestList());
@@ -37,6 +37,11 @@ public class CurrentRegion {
             public void handle(ActionEvent actionEvent) {
                 try {
                     player.CutDownATree(comboBox.getValue());
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Worked well");
+                    alert.setHeaderText(null);
+                    alert.setContentText("I see, you don't care about an environment..");
+                    alert.showAndWait();
                 } catch (OutOfTreesException e) {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Sorry");
@@ -64,6 +69,11 @@ public class CurrentRegion {
             public void handle(ActionEvent actionEvent) {
                 try {
                     player.BuildAHouse(comboBox.getValue());
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Worked well");
+                    alert.setHeaderText(null);
+                    alert.setContentText("How do you like your new house&");
+                    alert.showAndWait();
                 }
                 catch (NullPointerException exception) {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -72,6 +82,13 @@ public class CurrentRegion {
                     alert.setContentText("Please choose an object");
                     alert.showAndWait();
 //                    exception.printStackTrace();
+                }
+                catch (OutOfLogException e) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("It didn't work");
+                    alert.setHeaderText(null);
+                    alert.setContentText("You don't have enough logs");
+                    alert.showAndWait();
                 }
             }
         });
@@ -82,9 +99,20 @@ public class CurrentRegion {
             public void handle(ActionEvent actionEvent) {
                 try {
                     player.setFire(comboBox.getValue());
-                } catch (OutOfLogException e) {
-                    e.printStackTrace();
-                } catch (FireInTheVillageException e) {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Worked well");
+                    alert.setHeaderText(null);
+                    alert.setContentText("You're on fire!!");
+                    alert.showAndWait();
+                }
+                catch (OutOfLogException e) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("It didn't work");
+                    alert.setHeaderText(null);
+                    alert.setContentText("You don't have enough logs");
+                    alert.showAndWait();
+                }
+                catch (FireInTheVillageException e) {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("It didn't work");
                     alert.setHeaderText(null);
@@ -153,7 +181,7 @@ public class CurrentRegion {
         });
 
         VBox vBox = new VBox(imageView, hBox, buildAHouseButton, setFireButton, showElements, openMapButton);
-        Scene scene = new Scene(vBox, 400, 400);
+        Scene scene = new Scene(vBox, 800, 650);
         stage.setScene(scene);
         stage.showAndWait();
 
