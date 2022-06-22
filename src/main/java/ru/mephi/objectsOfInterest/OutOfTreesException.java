@@ -1,4 +1,4 @@
-package ru.mephi.multipleObjects;
+package ru.mephi.objectsOfInterest;
 
 public class OutOfTreesException extends Exception{
 }

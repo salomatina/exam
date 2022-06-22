@@ -1,14 +1,18 @@
 package ru.mephi.regions;
 
-import ru.mephi.multipleObjects.CaveList;
-import ru.mephi.multipleObjects.RiverList;
-import ru.mephi.multipleObjects.RockList;
-import ru.mephi.multipleObjects.TreeList;
+import ru.mephi.elements.SmallForest;
+import ru.mephi.helping.NumbersGiver;
+import ru.mephi.objectsOfInterest.Cave;
+import ru.mephi.objectsOfInterest.Village;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Forest extends Region{
-    private CaveList caveList;
-    private RiverList riverList;
-    private RockList rockList;
+    private List<Cave> caveList;
+    private List<SmallForest> smallForestList;
+    private List<Village> villageList;
+    private NumbersGiver numbersGiver = new NumbersGiver();
     private String imagePath = "file:/C:\\Users\\Елена\\IdeaProjects\\exam\\src\\main\\resources\\forestPicture.jpeg";
 
     @Override
@@ -16,40 +20,51 @@ public class Forest extends Region{
         return imagePath;
     }
 
-    public Forest(int caveNum, int riverNum, int rockNum, int treeNum, int houseNum) {
-        super(treeNum, houseNum);
-        caveList = new CaveList(caveNum);
-        riverList = new RiverList(riverNum);
-        rockList = new RockList(rockNum);
+    public Forest(int caveNum, int forNum, int villageNum) {
+        fillCaveList(caveNum);
+        fillSmallForestList(forNum);
+        fillSmallVillageList(villageNum);
+        getObjectOfInterestList().addAll(caveList);
+        getObjectOfInterestList().addAll(villageList);
     }
 
-    public CaveList getCaveList() {
+    public void fillSmallVillageList(int villageNum) {
+        villageList = new ArrayList<>();
+        for (int i = 0; i < villageNum; i++) {
+            int n1 = numbersGiver.getVillageNumbers().get(1);
+            int n2 = numbersGiver.getVillageNumbers().get(2);
+            int n3 = numbersGiver.getVillageNumbers().get(3);
+            int n4 = numbersGiver.getVillageNumbers().get(4);
+            int n5 = numbersGiver.getVillageNumbers().get(5);
+            Village village = new Village(n1, n2, n3, n4, n5);
+            villageList.add(village);
+        }
+    }
+
+    public void fillSmallForestList(int forNum) {
+        smallForestList = new ArrayList<>();
+        for (int i = 0; i < forNum; i++) {
+            SmallForest smallForest = new SmallForest(forNum);
+            smallForestList.add(smallForest);
+        }
+    }
+
+    public void fillCaveList(int caveNum) {
+        caveList = new ArrayList<>();
+        for (int i = 0; i < caveNum; i++) {
+            int iceNum = numbersGiver.getCaveNumbers().get(1);
+            Cave cave = new Cave(iceNum);
+            caveList.add(cave);
+        }
+    }
+
+    public List<Cave> getCaveList() {
         return caveList;
-    }
-
-    public void setCaveList(CaveList caveList) {
-        this.caveList = caveList;
-    }
-
-    public RiverList getRiverList() {
-        return riverList;
-    }
-
-    public void setRiverList(RiverList riverList) {
-        this.riverList = riverList;
-    }
-
-    public RockList getRockList() {
-        return rockList;
     }
 
     @Override
     public String getName() {
         return "forest";
-    }
-
-    public void setRockList(RockList rockList) {
-        this.rockList = rockList;
     }
 
 }

@@ -1,42 +1,43 @@
 package ru.mephi.player;
 
+import ru.mephi.keyElements.Fire;
 import ru.mephi.items.*;
-import ru.mephi.multipleObjects.OutOfTreesException;
-import ru.mephi.objects.House;
-import ru.mephi.objects.Tree;
+import ru.mephi.keyElements.House;
+import ru.mephi.objectsOfInterest.FireInTheVillageException;
+import ru.mephi.objectsOfInterest.Obj;
+import ru.mephi.objectsOfInterest.OutOfTreesException;
+import ru.mephi.regions.FireException;
 import ru.mephi.regions.Region;
 
 public class Player {
     private LogList logList = new LogList();
     private Region currentLocation;
 
-    public void CutDownATree(Tree tree) throws OutOfTreesException {
-        currentLocation.removeTree(tree);
-        System.out.println("removedTree");
+    public void CutDownATree(Obj objectOfInterest) throws OutOfTreesException {
+        currentLocation.removeTreeInRegion(objectOfInterest);
         Log log = new Log();
         logList.addLog(log);
+        System.out.println(logList.getLogList().size());
     }
 
-    public void BuildAHouse() throws OutOfLogException {
-        if (logList.getLogList().size() >= 10) {
-            logList.removeTenLog();
+    public void BuildAHouse(Obj objectOfInterest)  {
             House house = new House();
-            currentLocation.addHouse(house);
-        }
-        else {
-            throw new OutOfLogException();
-        }
+        System.out.println(objectOfInterest.getHouseList().size() + " before");
+            currentLocation.addHouse(house, objectOfInterest);
+        System.out.println(objectOfInterest.getHouseList().size() + " after");
     }
 
-    public void SetFire() throws InterruptedException, OutOfLogException {
-        if (logList.getLogList().size() >= 1) {
-            logList.removeLog();
+    public void setFire(Obj objectOfInterest) throws OutOfLogException, FireInTheVillageException, FireException {
+//        if (logList.getLogList().size() >= 1) {
+//            logList.removeLog();
             Fire fire = new Fire();
-            currentLocation.addFire(fire);
-        }
-        else {
-            throw new OutOfLogException();
-        }
+        System.out.println(objectOfInterest.getFireList().size() + " before");
+            currentLocation.addFire(fire, objectOfInterest);
+        System.out.println(objectOfInterest.getFireList().size() + " after");
+//        }
+//        else {
+//            throw new OutOfLogException();
+//        }
     }
 
     public Region getCurrentLocation() {

@@ -1,13 +1,18 @@
 package ru.mephi.regions;
 
-import ru.mephi.multipleObjects.*;
+import ru.mephi.helping.NumbersGiver;
+import ru.mephi.objectsOfInterest.Cave;
+import ru.mephi.objectsOfInterest.Glacier;
+import ru.mephi.objectsOfInterest.Village;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Tundra extends Region{
-    private CaveList caveList;
-//    private HouseList houseList;
-    private IceList iceList;
-    private RiverList riverList;
-    private RockList rockList;
+    private NumbersGiver numbersGiver = new NumbersGiver();
+    private List<Cave> caveList;
+    private List<Glacier> glacierList;
+    private List<Village> villageList;
     private String imagePath = "file:/C:\\Users\\Елена\\IdeaProjects\\exam\\src\\main\\resources\\tundraPic.jpg";
 
     @Override
@@ -15,49 +20,49 @@ public class Tundra extends Region{
         return imagePath;
     }
 
-    public Tundra(int caveNum, int houseNum, int iceNum, int riverNum, int rockNum, int treeNum) {
-        super(treeNum, houseNum);
-        caveList = new CaveList(caveNum);
-        iceList = new IceList(iceNum);
-        riverList = new RiverList(riverNum);
-        rockList = new RockList(rockNum);
+    public void fillGlacierList(int glacierNum) {
+        glacierList = new ArrayList<>();
+        for (int i = 0; i < glacierNum; i++) {
+            int iceNum = numbersGiver.getGlacierNumbers().get(1);
+            Glacier glacier = new Glacier(iceNum);
+            glacierList.add(glacier);
+        }
     }
 
-    public CaveList getCaveList() {
-        return caveList;
+    public void fillCaveList(int caveNum) {
+        caveList = new ArrayList<>();
+        for (int i = 0; i < caveNum; i++) {
+            int iceNum = numbersGiver.getCaveNumbers().get(1);
+            Cave cave = new Cave(iceNum);
+            caveList.add(cave);
+        }
+    }
+
+    public void fillSmallVillageList(int villageNum) {
+        villageList = new ArrayList<>();
+        for (int i = 0; i < villageNum; i++) {
+            int n1 = numbersGiver.getVillageNumbers().get(1);
+            int n2 = numbersGiver.getVillageNumbers().get(2);
+            int n3 = numbersGiver.getVillageNumbers().get(3);
+            int n4 = numbersGiver.getVillageNumbers().get(4);
+            int n5 = numbersGiver.getVillageNumbers().get(5);
+            Village village = new Village(n1, n2, n3, n4, n5);
+            villageList.add(village);
+        }
+    }
+
+    public Tundra(int caveNum, int villageNum, int glacierNum) {
+        fillCaveList(caveNum);
+        fillSmallVillageList(villageNum);
+        fillGlacierList(glacierNum);
+        getObjectOfInterestList().addAll(caveList);
+        getObjectOfInterestList().addAll(glacierList);
+        getObjectOfInterestList().addAll(villageList);
     }
 
     @Override
     public String getName() {
         return "tundra";
-    }
-
-    public void setCaveList(CaveList caveList) {
-        this.caveList = caveList;
-    }
-
-    public IceList getIceList() {
-        return iceList;
-    }
-
-    public void setIceList(IceList iceList) {
-        this.iceList = iceList;
-    }
-
-    public RiverList getRiverList() {
-        return riverList;
-    }
-
-    public void setRiverList(RiverList riverList) {
-        this.riverList = riverList;
-    }
-
-    public RockList getRockList() {
-        return rockList;
-    }
-
-    public void setRockList(RockList rockList) {
-        this.rockList = rockList;
     }
 
 }

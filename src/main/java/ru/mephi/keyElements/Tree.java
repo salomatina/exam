@@ -1,6 +1,6 @@
-package ru.mephi.objects;
+package ru.mephi.keyElements;
 
-public class Tree extends Obj{
+public class Tree{
 
     @Override
     public String toString() {

@@ -40,11 +40,6 @@ public class App extends Application {
         TextArea tundraTextField = new TextArea();
         tundraTextField.setPrefSize(20, 20);
         HBox tundraHBox = new HBox(tundraLabel, tundraTextField);
-        Label villageLabel = new Label("Choose number of villages");
-        villageLabel.setPrefSize(150, 20);
-        TextArea villageTextField = new TextArea();
-        villageTextField.setPrefSize(20, 20);
-        HBox villageHBox = new HBox(villageLabel, villageTextField);
         Button playButton = new Button("Play");
         playButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -52,16 +47,14 @@ public class App extends Application {
                 player = new Player();
                 world = new World(Integer.parseInt(desertTextField.getText()),
                         Integer.parseInt(forestTextField.getText()),
-                        Integer.parseInt(tundraTextField.getText()),
-                        Integer.parseInt(villageTextField.getText()));
-                player.setCurrentLocation(world.getAllRegionsList().get(1));
-                WorldMap.displayMap(world, player);
-//                primaryStage.showAndWait();
+                        Integer.parseInt(tundraTextField.getText()));
+                player.setCurrentLocation(world.getAllRegionsList().get(0));
+                WorldMap worldMap = WorldMap.getInstance(world, player);
+                worldMap.displayMap();
             }
         });
         playButton.setPrefSize(100, 40);
-//        playButton.setAlignment(Pos.CENTER);
-        VBox root = new VBox(desertHBox, forestHBox, tundraHBox, villageHBox, playButton);
+        VBox root = new VBox(desertHBox, forestHBox, tundraHBox, playButton);
         Scene scene = new Scene(root, 210, 200);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Get started");

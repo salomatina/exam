@@ -8,11 +8,13 @@ module ru.mephi {
 //    exports ru.mephi;
     exports ru.mephi.userInterface;
     exports ru.mephi.regions;
-    exports ru.mephi.multipleObjects;
-    exports ru.mephi.objects;
+//    exports ru.mephi.multipleObjectsOfInterest;
+    exports ru.mephi.objectsOfInterest;
     exports ru.mephi.items;
     exports ru.mephi.player;
     exports ru.mephi.helping;
     exports ru.mephi.world;
+    exports ru.mephi.elements;
+    exports ru.mephi.keyElements;
 //    opens ru.mephi.helping to javafx.fxml;
 }
