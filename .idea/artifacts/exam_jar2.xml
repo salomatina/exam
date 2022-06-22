@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
-  <artifact type="jar" build-on-make="true" name="exam:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/exam_jar</output-path>
+  <artifact type="jar" build-on-make="true" name="exam:jar2">
+    <output-path>$PROJECT_DIR$/exam/out/artifacts/exam_jar2</output-path>
     <root id="archive" name="exam.jar">
       <element id="module-output" name="exam" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-graphics/11.0.1/javafx-graphics-11.0.1-win.jar" path-in-jar="/" />
