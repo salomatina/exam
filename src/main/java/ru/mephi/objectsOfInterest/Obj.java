@@ -64,6 +64,7 @@ public abstract class Obj {
             fireList.add(fire);
             objectList.add(fire);
         }
+
     }
 
     @Override
