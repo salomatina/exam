@@ -11,7 +11,7 @@ public class Desert extends Region{
     private List<Oasis> oasisList;
     private List<Ruin> ruinsList;
     private NumbersGiver numbersGiver = new NumbersGiver();
-    private String imagePath = "file:/C:\\Users\\Елена\\IdeaProjects\\exam\\src\\main\\resources\\desertPic.jpg";
+    private String imagePath = "file:/C:\\Users\\Елена\\IdeaProjects\\exam\\exam\\src\\main\\resources\\desertPic.jpg";
 
     @Override
     public String getImagePath() {

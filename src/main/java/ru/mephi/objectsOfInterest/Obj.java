@@ -42,6 +42,7 @@ public abstract class Obj {
 
     public void addHouse(House house) {
         houseList.add(house);
+        objectList.add(house);
     }
 
     public List<House> getHouseList() {
@@ -61,6 +62,7 @@ public abstract class Obj {
                 fireList = new ArrayList<>();
             }
             fireList.add(fire);
+            objectList.add(fire);
         }
     }
 

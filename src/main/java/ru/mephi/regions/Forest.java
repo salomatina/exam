@@ -13,7 +13,7 @@ public class Forest extends Region{
     private List<SmallForest> smallForestList;
     private List<Village> villageList;
     private NumbersGiver numbersGiver = new NumbersGiver();
-    private String imagePath = "file:/C:\\Users\\Елена\\IdeaProjects\\exam\\src\\main\\resources\\forestPicture.jpeg";
+    private String imagePath = "file:/C:\\Users\\Елена\\IdeaProjects\\exam\\exam\\src\\main\\resources\\forestPicture.jpeg";
 
     @Override
     public String getImagePath() {

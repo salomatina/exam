@@ -1,6 +1,5 @@
 package ru.mephi.objectsOfInterest;
 
-import ru.mephi.keyElements.Fire;
 import ru.mephi.elements.Ice;
 
 import java.util.ArrayList;

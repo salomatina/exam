@@ -13,7 +13,7 @@ public class Tundra extends Region{
     private List<Cave> caveList;
     private List<Glacier> glacierList;
     private List<Village> villageList;
-    private String imagePath = "file:/C:\\Users\\Елена\\IdeaProjects\\exam\\src\\main\\resources\\tundraPic.jpg";
+    private String imagePath = "file:/C:\\Users\\Елена\\IdeaProjects\\exam\\exam\\src\\main\\resources\\tundraPic.jpg";
 
     @Override
     public String getImagePath() {

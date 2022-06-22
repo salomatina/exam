@@ -1,8 +1,6 @@
 package ru.mephi.objectsOfInterest;
 
 import ru.mephi.elements.*;
-import ru.mephi.keyElements.Fire;
-import ru.mephi.keyElements.Tree;
 
 import java.util.ArrayList;
 import java.util.List;
